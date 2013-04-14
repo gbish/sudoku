@@ -1,0 +1,102 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "base";
+@import "compass/reset";
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+#wrapper {
+	width: 960px;
+	margin: 0 auto;
+	@include clearfix;
+}
+
+body > header {
+	height: 150px;
+	border-bottom: 1px solid #333;
+	h1 {
+		text-align: center;
+		line-height: 150px;
+		font-size: 72px;
+		text-transform: uppercase;
+		font-weight: lighter;
+		color: #333;
+	}
+}
+
+#left, #center, #right {
+	float: left;
+}
+
+#left, #right {
+	width: 200px;
+}
+
+#center {
+	width: 560px;
+}
+
+section > header {
+	text-transform: uppercase;
+	margin: 20px 0;
+}
+
+#game {
+	margin: 20px auto;
+	border: $border_width solid #333;
+	width: $game_width;
+	height: $game_height;
+	span {
+		display: block;
+		float: left;
+		width: $box_width;
+		height: $box_height;
+		text-align: center;
+		line-height: $box_height;
+		border: $border_width solid #333;
+		cursor: pointer;
+	}
+	&+ .buttons {
+		width: $game_width;
+	}
+}
+
+.selected {
+	background: #ffff66;
+}
+
+.buttons {
+	margin: 20px auto;
+	overflow: hidden;
+	section {
+		text-align: center;
+		color: #666;
+		border: $border_width solid #333;
+		border-top: 0px;
+		padding: 10px;
+		cursor: pointer;
+		&:hover {
+			background: #eee;
+		}
+		&:first-child {
+			border-top: 1px solid #333;
+		}
+	}
+}
+
+footer {
+	border-top: $border_width solid #333;
+	font-size: 12px;
+	@include clearfix;
+	padding: 10px;
+	section {
+		width: 50%;
+		float: left;
+		text-align: center;
+	}
+}

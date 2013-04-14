@@ -1,0 +1,23 @@
+//
+// _base.scss
+// sudoku
+// 
+// Created by Gareth Bishop on 2013-02-24.
+// Copyright 2013 Gareth Bishop. All rights reserved.
+//
+
+@import "compass/css3";
+@import "compass/utilities";
+
+$cols: 9;
+
+$border_width: 1px;
+
+// Sizing
+$box_len: 50px;
+$box_width: $box_len - $border_width*2;
+$box_height: $box_len - $border_width*2;
+
+$game_width: ($box_width + $border_width * 2) * $cols;
+$game_height: ($box_height + $border_width * 2) * $cols;
+

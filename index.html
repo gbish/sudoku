@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sudoku Game</title>
+	  <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	  <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+	  <!--[if IE]>
+	      <link href="stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	  <![endif]-->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="javascripts/jstorage.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header>
+			<h1>Sudoku Game</h1>
+		</header>
+		<section id="wrapper">
+			<section id="left">
+				<header>Difficulty</header>
+				<section id="setting" class="buttons">
+					<section class="easy">Easy</section>
+					<section class="medium">Medium</section>
+					<section class="hard">Hard</section>
+				</section>
+			</section>
+			<section id="center">
+				<section id="game">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</section>
+				<section class="buttons">
+					<section class="check_solution">Check your Solution!</section>
+					<section class="reset">Reset</section>
+				</section>
+			</section>
+			<section id="right">
+				<header>Style Options</header>
+				<section id="accessibility" class="buttons">
+					<section class="easy">Easy</section>
+					<section class="medium">Medium</section>
+					<section class="hard">Hard</section>
+				</section>
+			</section>
+		</section>
+		<footer>
+			<section class="current_date">
+				Current Date: <?php echo date("F d Y H:i:s", time()); ?>
+			</section>
+			<section class="last_modified">
+				Last Modified: <?php echo date("F d Y H:i:s", filemtime(__FILE__)); ?>
+			</section>			
+		</footer>
+		<script src="javascripts/app.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
