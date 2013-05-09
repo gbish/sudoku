@@ -7,7 +7,6 @@
 	  <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
 		<script src="javascripts/modernizr.dev.js" type="text/javascript" charset="utf-8"></script>
 		<script src="javascripts/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="javascripts/jstorage.js" type="text/javascript" charset="utf-8"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	</head>
 	<body>
@@ -47,10 +46,10 @@
 			</section>
 			<footer>
 				<section class="current_date">
-					Current Date: <?php echo date("F d Y H:i:s", time()); ?>
+					Current Date: <span class="date"></span>
 				</section>
 				<section class="last_modified">
-					Last Modified: <?php echo date("F d Y H:i:s", filemtime(__FILE__)); ?>
+					Last Modified: <span class="modified"></span>
 				</section>			
 			</footer>
 		</section>
@@ -67,5 +66,11 @@
 			<span class="clear">X</span>
 		</section>
 		<script src="javascripts/app.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			(function() {
+				mod = new Date(document.lastModified);
+				$('.modified').html(mod.toDateString());
+			})();
+		</script>
 	</body>
 </html>

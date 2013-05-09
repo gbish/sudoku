@@ -199,12 +199,18 @@ sudoku.init.setupButtons = function() {
 	$('#styles .light span').addClass('icon-checkmark');
 };
 
+sudoku.init.setDateTime = function() {
+	var date = new Date();
+	$('.date').html(date.toDateString());
+};
+
 sudoku.init.run = function() {
 	if ($('#game').length) {
 		sudoku.init.drawGrid();
 		sudoku.init.setupGrid();
 		sudoku.init.setupGame();
 		sudoku.init.setupButtons();
+		sudoku.init.setDateTime();
 		
 		$('#game span').on('click', function() {
 			if ($(this).hasClass('selected')) {
