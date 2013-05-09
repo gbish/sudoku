@@ -3,132 +3,69 @@
 	<head>
 		<title>Sudoku Game</title>
 	  <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+		<link id="theme" rel="stylesheet" href="stylesheets/light-theme.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	  <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
-	  <!--[if IE]>
-	      <link href="stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
-	  <![endif]-->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="javascripts/modernizr.dev.js" type="text/javascript" charset="utf-8"></script>
+		<script src="javascripts/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="javascripts/jstorage.js" type="text/javascript" charset="utf-8"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	</head>
 	<body>
-		<header>
-			<h1>Sudoku Game</h1>
-		</header>
-		<section id="wrapper">
-			<section id="left">
-				<header>Difficulty</header>
-				<section id="setting" class="buttons">
-					<section class="easy">Easy</section>
-					<section class="medium">Medium</section>
-					<section class="hard">Hard</section>
+		<section class="page">
+			<header>
+				<h1>Sudoku</h1>
+				<span class="icon-cog"></span>
+			</header>
+			<section id="wrapper">
+				<section id="nav">
+					<section id="difficulty" class="buttons">
+						<header>Difficulty</header>
+						<section class="easy">Easy<span></span></section>
+						<section class="medium">Medium<span></span></section>
+						<section class="hard">Hard<span></span></section>
+					</section>
+					<section id="fonts" class="buttons">
+						<header>Font Options</header>
+						<section data-size="larger">Larger<span></span></section>
+						<section data-size="normal">Normal<span></span></section>
+						<section data-size="smaller">Smaller<span></span></section>
+					</section>
+					<section id="styles" class="buttons">
+						<header>Style Options</header>
+						<section class="light" data-theme="light-theme.css">Light<span></span></section>
+						<section class="dark" data-theme="dark-theme.css">Dark<span></span></section>
+					</section>
+				</section>
+				<section id="game"></section>
+				<section id="tasks">
+					<section class="buttons">
+						<header>Game Options</header>
+						<section class="check_solution">Check your Solution!</section>
+						<section class="reset">Reset</section>
+					</section>
 				</section>
 			</section>
-			<section id="center">
-				<section id="game">
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
+			<footer>
+				<section class="current_date">
+					Current Date: <?php echo date("F d Y H:i:s", time()); ?>
 				</section>
-				<section class="buttons">
-					<section class="check_solution">Check your Solution!</section>
-					<section class="reset">Reset</section>
-				</section>
-			</section>
-			<section id="right">
-				<header>Style Options</header>
-				<section id="accessibility" class="buttons">
-					<section class="easy">Easy</section>
-					<section class="medium">Medium</section>
-					<section class="hard">Hard</section>
-				</section>
-			</section>
+				<section class="last_modified">
+					Last Modified: <?php echo date("F d Y H:i:s", filemtime(__FILE__)); ?>
+				</section>			
+			</footer>
 		</section>
-		<footer>
-			<section class="current_date">
-				Current Date: <?php echo date("F d Y H:i:s", time()); ?>
-			</section>
-			<section class="last_modified">
-				Last Modified: <?php echo date("F d Y H:i:s", filemtime(__FILE__)); ?>
-			</section>			
-		</footer>
+		<section id="keyboard">
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+			<span>5</span>
+			<span>6</span>
+			<span>7</span>
+			<span>8</span>
+			<span>9</span>
+			<span class="clear">X</span>
+		</section>
 		<script src="javascripts/app.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>

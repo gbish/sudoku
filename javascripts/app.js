@@ -61,6 +61,8 @@ sudoku.init.clearGame = function() {
 
 sudoku.init.setupGame = function() {
 	sudoku.init.clearGame();
+	
+	$('#keyboard').hide();
 		
 	g = sudoku.init.getGame(game.setting);
 	arr = g.split("");
@@ -74,22 +76,37 @@ sudoku.init.setupGame = function() {
 
 sudoku.init.selectCell = function(el) {
 	if ($(el).hasClass('noselect')) return false;
-	if ($('span.selected').length > 0) sudoku.init.deselectCell($('span.selected'));
+	if ($('span.selected').length > 0) sudoku.init.deselectCell();
 	$(el).addClass('selected');
 	sudoku.init.editCellValue();
+	sudoku.init.showKeyboard();
 };
 
-sudoku.init.deselectCell = function(el) {
-	$(el).removeClass();
+sudoku.init.deselectCell = function() {
+	$('span.selected').removeClass();
+	sudoku.init.hideKeyboard();
 };
 
-sudoku.init.editCellValue = function() {
+sudoku.init.editCellValue = function(val) {
+	if (val) {
+		if (val == 'clear') {
+			$('.selected').text("");
+		} else {
+			$('.selected').text(val);
+		}
+		sudoku.init.hideKeyboard();
+		sudoku.init.deselectCell();
+		return;
+	};
+	
 	$(window).keypress(function(e) {
 		var input = String.fromCharCode(e.which);
 		if (sudoku.init.checkCharValue(input) > 0)
 			$('.selected').text(input);
-		else
+		else if (sudoku.init.checkCharValue(input) == 0)
 			$('.selected').text("");
+		else
+			return;
 	});
 };
 
@@ -100,6 +117,7 @@ sudoku.init.checkCharValue = function(num) {
 };
 
 sudoku.init.changeDifficulty = function(el) {
+	$('#difficulty section span').removeClass();
 	if ($(el)[0].className == 'easy') {
 		game.setting = 'easy';
 	}	else if ($(el)[0].className == 'medium') {
@@ -107,55 +125,138 @@ sudoku.init.changeDifficulty = function(el) {
 	} else if ($(el)[0].className == 'hard') {
 		game.setting = 'hard';
 	};
-		
+	$(el).children('span').addClass('icon-checkmark');
 	sudoku.init.setupGame();
 };
 
-sudoku.init.checkIfGameComplete = function() {
-	$('span').each(function(index, el) {
-		if ($(this).is(':empty')) {
-			console.log('true');
-			return true;
-		}
-	});
-	console.log('false');
-	return false;
+sudoku.init.setupKeyboard = function() {
+	win_height = $(window).height();
+	button_height = win_height/6;
+	$('#keyboard span').height(button_height).css('line-height', button_height + 'px');
 };
 
-sudoku.init.modified = function() {
-	
+sudoku.init.showKeyboard = function() {
+	if (Modernizr.touch)
+		$('#keyboard').slideDown();
+};
+
+sudoku.init.hideKeyboard = function() {
+	if (Modernizr.touch)
+		$('#keyboard').slideUp();
+};
+
+sudoku.init.drawGrid = function() {
+	for (var i=0; i < 81; i++) {
+		$('<span/>').appendTo('#game');
+	};
+};
+
+sudoku.init.setupGrid = function() {	
+	max_width = $('#game').width();
+	cell_width = (max_width/9)-2;
+	rounded = parseFloat(cell_width.toFixed(1));
+	var r = sudoku.init.adjustFloat(rounded, max_width);
+	$('#game span').css({
+		width: r,
+		height: r,
+		'line-height': r + 'px'
+	});
+};
+
+sudoku.init.adjustFloat = function(f, max) {
+	if ((f+2)*9 > max) {
+		f -= 0.1;
+		this.adjustFloat(f, max)
+	};
+	return f;
+};
+
+sudoku.init.changeTheme = function(el) {
+	theme = $(el).data('theme');
+	$('#styles section span').removeClass();
+	t = 'stylesheets/' + theme;
+	$('head link#theme').attr('href', t);
+	$(el).children('span').addClass('icon-checkmark');
+};
+
+sudoku.init.changeFontSize = function(el) {
+	size = $(el).data('size');
+	$('#fonts section span').removeClass();
+	if (size == 'larger') {
+		$('body').removeClass().addClass('larger');
+	} else if (size == 'smaller') {
+		$('body').removeClass().addClass('smaller');
+	} else {
+		$('body').removeClass();
+	};
+	$(el).children('span').addClass('icon-checkmark');
+	sudoku.init.setupGrid();
+};
+
+sudoku.init.setupButtons = function() {
+	$('#difficulty .easy span').addClass('icon-checkmark');
+	$("#fonts section[data-size='normal'] span").addClass('icon-checkmark');
+	$('#styles .light span').addClass('icon-checkmark');
 };
 
 sudoku.init.run = function() {
 	if ($('#game').length) {
+		sudoku.init.drawGrid();
+		sudoku.init.setupGrid();
 		sudoku.init.setupGame();
-		$('span').on('click', function() {
+		sudoku.init.setupButtons();
+		
+		$('#game span').on('click', function() {
 			if ($(this).hasClass('selected')) {
 				sudoku.init.deselectCell(this);
 			} else {
 				sudoku.init.selectCell(this);
 			};			
 		});
-		$('#setting section').on('click', function() {
+		
+		$('#difficulty section').on('click', function() {
 			sudoku.init.changeDifficulty($(this));
 		});
-		$('#wrapper').on('click', function() {
-			// sudoku.init.deselectCell($('span.selected'));
-		});
+		
 		$('.check_solution').on('click', function() {
-			// console.log(sudoku.init.checkIfGameComplete());
-			// if (!sudoku.init.checkIfGameComplete()) {
-			// 				
-			// 			}	
 			if (sudoku.init.getGameSate() == sudoku.init.getGameSolution(game.setting)) {
-				alert('Congratulations, you have completed the game!');
+				alert("Congratulations, you have completed the game!");
 			} else {
 				alert("That doesn't match the solution, try again.");
 			}		
 		});
+		
 		$('.reset').on('click', function() {
 			sudoku.init.setupGame();
 		});
+		
+		$('#fonts section').on('click', function() {
+			sudoku.init.changeFontSize(this);
+		});
+		
+		$('#styles section').on('click', function() {
+			sudoku.init.changeTheme(this);
+		});
+		
+		$('header span.icon-cog').on('click', function() {
+			$('#nav').toggle();
+		});
+		
+		$(window).resize(function() {
+			sudoku.init.setupGrid();
+		});
+		
+		if (Modernizr.touch) {
+			sudoku.init.setupKeyboard();
+			
+			$('#keyboard span').on('click', function() {
+				v = $(this).html();
+				if ($(this).hasClass('clear'))
+					sudoku.init.editCellValue("clear");
+				else
+					sudoku.init.editCellValue(v);
+			});
+		};
 	};
 };
 

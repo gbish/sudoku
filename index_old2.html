@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sudoku Game</title>
+	  <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	  <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+	  <!--[if IE]>
+	      <link href="stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	  <![endif]-->
+		<script src="javascripts/modernizr.dev.js" type="text/javascript" charset="utf-8"></script>
+		<script src="javascripts/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="javascripts/jstorage.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header>
+			<h1>Sudoku Game</h1>
+		</header>
+		<section id="wrapper">
+			<section id="left">
+				<section id="setting" class="buttons">
+					<header>Difficulty</header>
+					<section class="easy">Easy</section>
+					<section class="medium">Medium</section>
+					<section class="hard">Hard</section>
+				</section>
+				<section id="accessibility" class="buttons">
+					<header>Style Options</header>
+					<section class="easy">Larger</section>
+					<section class="medium">Normal</section>
+					<section class="hard">Smaller</section>
+				</section>
+			</section>
+			<section id="center">
+				<section id="game">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</section>
+			</section>
+			<section id="right">
+				<section class="buttons">
+					<header>Game Options</header>
+					<section class="check_solution">Check your Solution!</section>
+					<section class="reset">Reset</section>
+				</section>
+			</section>
+		</section>
+		<footer>
+			<section class="current_date">
+				Current Date: <?php echo date("F d Y H:i:s", time()); ?>
+			</section>
+			<section class="last_modified">
+				Last Modified: <?php echo date("F d Y H:i:s", filemtime(__FILE__)); ?>
+			</section>			
+		</footer>
+		<section id="keyboard">
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+			<span>5</span>
+			<span>6</span>
+			<span>7</span>
+			<span>8</span>
+			<span>9</span>
+			<span class="clear">X</span>
+		</section>
+		<script src="javascripts/app.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

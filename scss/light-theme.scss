@@ -1,0 +1,44 @@
+@import "base";
+
+body {
+	background: #fff;
+	color: $light_font_colour;
+}
+
+.page > header {
+	border-bottom: $border_width solid $light_border_colour;
+	h1 {
+		color: $light_header_font_colour;
+	}
+}
+
+#game span {
+	border: $border_width solid $light_border_colour;
+}
+
+.selected {
+	background: $light_box_select_colour;
+}
+
+.noselect {
+	background: $light_noselect_colour;
+}
+
+.buttons {
+	header {
+		background: $light_button_header_colour;
+		border: $border_width solid $light_border_colour;
+	}
+	section {
+		color: $light_button_font_colour;
+		border: $border_width solid $light_border_colour;
+		border-top: 0px;
+		&:hover, &:active {
+			background: $light_button_hover_colour;
+		}
+	}
+}
+
+footer {
+	border-top: $border_width solid $light_border_colour;
+}

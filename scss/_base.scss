@@ -8,6 +8,14 @@
 
 @import "compass/css3";
 @import "compass/utilities";
+@import "susy";
+
+$total-columns  : 4;
+$column-width   : 4em;
+$gutter-width   : 1em;
+$grid-padding   : $gutter-width;
+$break-desktop: 12;
+$landscape-mobile-break: 6;
 
 $cols: 9;
 
@@ -21,3 +29,30 @@ $box_height: $box_len - $border_width*2;
 $game_width: ($box_width + $border_width * 2) * $cols;
 $game_height: ($box_height + $border_width * 2) * $cols;
 
+$keyboard_button_height: 200px;
+
+$header_height: 4em;
+$footer_height: 30px;
+
+$dark_gray: #333;
+$light_gray: #eee;
+
+// Light Theme
+$light_font_colour: #000;
+$light_header_font_colour: $dark_gray;
+$light_border_colour: $dark_gray;
+$light_button_header_colour: #ddd;
+$light_button_font_colour: #666;
+$light_button_hover_colour: $light_gray;
+$light_noselect_colour: $light_gray;
+$light_box_select_colour: #ff6;
+
+// Dark Theme
+$dark_font_colour: #fff;
+$dark_header_font_colour: $light_gray;
+$dark_border_colour: #999;
+$dark_button_header_colour: #222;
+$dark_button_font_colour: #ccc;
+$dark_button_hover_colour: $dark_gray;
+$dark_noselect_colour: $dark_gray;
+$dark_box_select_colour: #cc3;
