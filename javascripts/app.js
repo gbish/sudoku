@@ -201,7 +201,7 @@ sudoku.init.setupButtons = function() {
 
 sudoku.init.setDateTime = function() {
 	var date = new Date();
-	$('.date').html(date.toDateString() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds());
+	$('.date').html(date.toISOString());
 };
 
 sudoku.init.run = function() {
