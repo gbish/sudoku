@@ -82,18 +82,6 @@ body {
   font-family: Arial;
 }
 
-#left, #center, #right {
-  float: left;
-}
-
-#left, #right {
-  width: 200px;
-}
-
-#center {
-  width: 560px;
-}
-
 section > header {
   text-transform: uppercase;
   margin: 20px 0;
@@ -109,16 +97,12 @@ section > header {
   min-width: 30px;
   min-height: 30px;
   text-align: center;
-  line-height: 48px;
   cursor: pointer;
 }
 
-.buttons {
-  overflow: hidden;
-}
 .buttons header {
   padding: 10px;
-  margin: 0 auto;
+  margin: 0;
 }
 .buttons section {
   text-align: center;
@@ -164,8 +148,8 @@ footer {
 
 .page {
   *zoom: 1;
-  max-width: 19em;
-  _width: 19em;
+  max-width: 59em;
+  _width: 59em;
   padding-left: 1em;
   padding-right: 1em;
   margin-left: auto;
@@ -191,6 +175,9 @@ footer {
   font-size: 3em;
 }
 .page #nav {
+  display: none;
+}
+.page #fonts {
   display: none;
 }
 .page .buttons {
@@ -259,6 +246,9 @@ footer {
   }
   .page #fonts, .page #styles {
     margin-top: 20px;
+  }
+  .page #fonts {
+    display: block;
   }
   .page #tasks {
     margin-right: 0;

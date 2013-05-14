@@ -28,18 +28,6 @@ body {
 	}
 }
 
-#left, #center, #right {
-	float: left;
-}
-
-#left, #right {
-	width: 200px;
-}
-
-#center {
-	width: 560px;
-}
-
 section > header {
 	text-transform: uppercase;
 	margin: 20px 0;
@@ -53,16 +41,14 @@ section > header {
 		min-width: 30px;
 		min-height: 30px;
 		text-align: center;
-		line-height: $box_height;
 		cursor: pointer;
 	}
 }
 
 .buttons {
-	overflow: hidden;
 	header {
 		padding: 10px;
-		margin: 0 auto;
+		margin: 0;
 	}
 	section {
 		text-align: center;
@@ -126,6 +112,9 @@ footer {
 	#nav {
 		display: none;
 	}
+	#fonts {
+		display: none;
+	}
 	.buttons {
 		margin: 10px auto;
 	}
@@ -170,6 +159,9 @@ footer {
 		}
 		#fonts, #styles {
 			margin-top: 20px;
+		}
+		#fonts {
+			display: block;
 		}
 		#tasks {
 			margin-right: 0;
